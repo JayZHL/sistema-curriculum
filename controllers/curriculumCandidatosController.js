@@ -1,6 +1,6 @@
 const modelo=require('../models');
 
-const getAllCurriculumsProfesores = async function(req, res){
+const getAllRegistros = async function(req, res){
     let datos;
     await modelo.CurriculumCandidato.findAll({
         raw:true
@@ -10,7 +10,7 @@ const getAllCurriculumsProfesores = async function(req, res){
     console.log(datos);
     res.status(200).json(datos);
 }
-const getCurriculumsProfesores= async function(req,res){
+const getRegistros= async function(req,res){
     let id=req.params.id;
     modelo.CurriculumCandidato.findByPk(id).then((curriculum)=>{
         if(curriculum){
@@ -21,7 +21,7 @@ const getCurriculumsProfesores= async function(req,res){
     });
 }
 
-const createCurriculum= async function(req,res){
+const createRegistro= async function(req,res){
     await modelo.CurriculumCandidato.create({
         profesorid: req.body.profesorid,
         curriculumid:req.body.curriculumid
@@ -36,7 +36,7 @@ const createCurriculum= async function(req,res){
     });
 }
 
-const updateCurriculum=function(req,res){
+const updateRegistro=function(req,res){
     let id=req.params.id;
     let val;
     modelo.CurriculumCandidato.findByPk(id).then((curriculum)=>{
@@ -61,7 +61,7 @@ const updateCurriculum=function(req,res){
    })
 }
 
-const deleteCurriculum=function (req,res){
+const deleteRegistro=function (req,res){
     let id=req.params.id;
     let val;
      modelo.CurriculumCandidato.findByPk(id).then((curriculum)=>{
@@ -81,8 +81,8 @@ const deleteCurriculum=function (req,res){
     })
   } 
 
-exports.getAllCurriculumsProfesores=getAllCurriculumsProfesores;
-exports.getCurriculumsProfesores=getCurriculumsProfesores;
-exports.createCurriculum=createCurriculum;
-exports.updateCurriculum=updateCurriculum;
-exports.deleteCurriculum=deleteCurriculum;
+exports.getAllRegistros=getAllRegistros;
+exports.getRegistros=getRegistros;
+exports.createRegistro=createRegistro;
+exports.updateRegistro=updateRegistro;
+exports.deleteRegistro=deleteRegistro;

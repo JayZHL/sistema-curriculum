@@ -58,9 +58,11 @@ router.post('/curriculums/', upload.single('file'), async (req, res) =>{
 router.put('/curriculums/:id',curriculumController.updateCurriculum);
 router.delete('/curriculums/:id',curriculumController.deleteCurriculum);
 
-router.get('/registros',curriculumCandidatosController.getAllCurriculumsProfesores);
-router.get('/registros/:id',curriculumCandidatosController.getCurriculumsProfesores);
-// router.get('/regustroa')
+router.get('/registros/',curriculumCandidatosController.getAllRegistros);
+router.get('/registros/:id',curriculumCandidatosController.getRegistros);
+router.post('/registros/',curriculumCandidatosController.createRegistro);
+router.put('/registros/:id',curriculumCandidatosController.updateRegistro);
+router.delete('/registros/:id',curriculumCandidatosController.deleteRegistro);
 
    
 module.exports=router;
